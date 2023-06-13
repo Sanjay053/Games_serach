@@ -1,0 +1,39 @@
+<div class="container mt-3">  
+  <div class="input-group">
+    <div class="form-outline">
+      <input id="search-input" 
+        type="search" 
+        id="form1" 
+        class="form-control"
+        [(ngModel)]="searchTerm"
+        (input)="filterGames()" />
+      <label class="form-label text-primary" for="form1">Search</label>
+    </div>
+    <div>
+      <button id="search-button" type="button" class="btn btn-primary">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>  
+  </div>
+</div>
+
+<div class="container mat-dark-theme">
+<div class="d-flex row p-3">      
+  <div *ngFor="let game of filteredGames | paginate: { itemsPerPage: 6, currentPage: currentPage, totalItems: getTotalItems() }" class="container col-md-4 col-sm-6">
+    <div class="card mb-3">
+      <img class="card-img-top" [src]="game.thumb" alt="Card Thumbnail">
+      <div class="card-body describtion">
+        <p class="card-title">Game Title: {{game.title}}</p>
+        <p>storeID: {{game.storeID}}</p>
+        <p>salePrice: &#36; {{game.salePrice}}</p>
+        <p class="card-text">{{game.short_description}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="container p-3">
+  <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+</div>
