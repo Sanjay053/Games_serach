@@ -3,14 +3,15 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+
 /* Your custom styles below */
 
 
 body {
-    background-color: #f0f0f0;
-  }
-  
-  h1 {
-    color: #333;
-    font-size: 24px;
-  }
+  background-color: #a73c3c;
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 24px;
+}
